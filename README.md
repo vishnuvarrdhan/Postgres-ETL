@@ -42,6 +42,24 @@ select count(user_id) as total_users,location from songplays group by location o
 
 ![](query_results.png)
 
+### 4) explanation of the files in the repository.
 
+#### sql_queries.py:
+This file contains all of the CREATE TABLE / INSERT queries needed to the create the tables and update them.
+
+#### create_tables.py:
+Draws from the queries in sql_queries.py and actually creates the tables for the database, dropping them if they already exist. Note: if want to run, restart all kernels associated with the sparkifydb.
+
+#### etl.py:
+Draws from the insert queries in sql_queries.py to update each table. It parses through the data folders, song_data and log_data, processing each file and updating the requisite database.
+
+#### etl.ipynb:
+This notebook contains the workflow that was implemented in etl.py, with sections describing the etl process of each table. Note: when running create_tables.py, this kernel must be restarted if connected to the database.
+
+#### test.ipynb:
+This notebook serves as the file you can use to query and test that the database is actually populated, and populated correctly. Note: when running create_tables.py, this kernel must be restarted if connected to the database.
+
+#### data:
+Has 2 subfolders, log_data and song_data. These are a subset of Sparkify's user data.
         
         
