@@ -40,7 +40,7 @@ To get the details of usage of application in each location.
 
 select count(user_id) as total_users,location from songplays group by location order by total_users desc.
 
-![]()
+![](query_results.png)
 
 
         
