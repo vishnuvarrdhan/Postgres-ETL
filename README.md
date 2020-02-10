@@ -1,12 +1,13 @@
+###H3
 1. Discuss the purpose of this database in the context of the startup, Sparkify, and their analytical goals.
 
-    Sparkify is a startup application based on music streaming. The analytics team at Sparkify wants to analyze the trends on songs       data that has been collected and also about the songs their users are listening to. As the data is collected is in the form of       json logs sourced from their application they need this data to be stored in database in a way, on which they can easily query       the data.
+    Sparkify is a startup application based on music streaming. The analytics team at Sparkify wants to analyze the trends on songs         data that has been collected and also about the songs their users are listening to. As the data is collected is in the form of           json logs sourced from their application they need this data to be stored in database in a way, on which they can easily query           the data.
     
 2. State and justify your database schema design and ETL pipeline.
     
-    Based on the needs of Sparkify team, i had proposed and designed a database schema. Data Sets songs and user_log are considered and developed a design based on star schema in which it has 4 dimension tables and 1 fact table as descirbed below.
+    Based on the needs of Sparkify team, i had proposed and designed a database schema. Data Sets songs and user_log are considered and     developed a design based on star schema in which it has 4 dimension tables and 1 fact table as descirbed below.
     
-    a. songplays(Fact): It has all the information related to which songs user is listening to. Overall it has start_time, user_id, level,        song_id, artist_id, session_id, location, user_agent columns.
+    a. songplays(Fact): It has all the information related to which songs user is listening to. Overall it has start_time, user_id,            level,song_id, artist_id, session_id, location, user_agent columns.
         
     b. users(dimension): It has details about the user like user_id(PRIMARY_KEY), firstName, lastName, level.
     
