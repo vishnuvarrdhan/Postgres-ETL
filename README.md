@@ -21,7 +21,6 @@
 
 Because a star schema database has a small number of tables and clear join paths, queries run faster than they do against an OLTP system. Small single-table queries, usually of dimension tables, are almost instantaneous. Large join queries that involve multiple tables take only seconds or minutes to run.
 
-In a star schema database design, the dimensions are linked only through the central fact table. When two dimension tables are used in a query, only one join path, intersecting the fact table, exists between those two tables. This design feature enforces accurate and consistent query results.
 
 #### Load performance and administration
 
@@ -34,6 +33,14 @@ A star schema has referential integrity built in when data is loaded. Referentia
 #### Easily understood
 
 A star schema is easy to understand and navigate, with dimensions joined only through the fact table. These joins are more significant to the end user, because they represent the fundamental relationship between parts of the underlying business. Users can also browse dimension table attributes before constructing a query.
+
+### 3) Provide example queries and results for song play analysis.
+
+To get the details of usage of application in each location.
+
+select count(user_id) as total_users,location from songplays group by location order by total_users desc.
+
+![]()
 
 
         
