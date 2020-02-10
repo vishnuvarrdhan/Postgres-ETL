@@ -62,4 +62,13 @@ This notebook serves as the file you can use to query and test that the database
 #### data:
 Has 2 subfolders, log_data and song_data. These are a subset of Sparkify's user data.
         
-        
+### how to run create_tables.py and etl.py        
+
+#### Method1:
+Open a new .ipynb notebook in jupyter and copy paste the following commands and click on run button.
+   import create_tables
+   import etl
+   create_tables.main()
+   etl.main()
+#### Method2:
+An alternative would be using the Command Line/Terminal, navigating to your local python directory to get the executable, and dragging the file path from a File Explorer/Finder window. Ex: "python C:\Desktop\etl.py".
