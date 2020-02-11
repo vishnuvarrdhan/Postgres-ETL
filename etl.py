@@ -7,7 +7,17 @@ import pandas as pd
 from sql_queries import *
 
 
-def process_song_file(cur, filepath):
+def process_song_file(cur, filepath):    
+    
+    """Walks through all files nested under filepath, and processes all files found. Stores the data in song and artist tables
+
+    Parameters:
+        cur (psycopg2.cursor()): Cursor of the sparkifydb database
+        filepath (str): Filepath parent of the logs to be analyzed
+
+    Returns:
+        Nothing
+    """
     # open song file
     with open(filepath, 'r') as f:
         data = json.load(f)
@@ -26,6 +36,15 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """Walks through all files nested under filepath, and processes all log files found. It stores data into users, song_plays, time tables.
+
+    Parameters:
+        cur (psycopg2.cursor()): Cursor of the sparkifydb database
+        filepath (str): Filepath parent of the logs to be analyzed
+
+    Returns:
+        Nothing
+    """
     # open log file
     data = []
     for line in open(filepath,'r'):
@@ -78,6 +97,17 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """Walks through all files nested under filepath, and processes all logs found.
+
+    Parameters:
+        cur (psycopg2.cursor()): Cursor of the sparkifydb database
+        conn (psycopg2.connect()): Connection to the sparkifycdb database
+        filepath (str): Filepath parent of the logs to be analyzed
+        func (python function): Function to be used to process each log
+
+    Returns:
+        Name of files processed
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
