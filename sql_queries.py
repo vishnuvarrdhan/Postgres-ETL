@@ -54,7 +54,7 @@ time_table_create = ("""create table IF NOT EXISTS time(start_time timestamp PRI
 songplay_table_insert = ("""insert into songplays(start_time, user_id, level, song_id, artist_id, session_id, location, user_agent) values(%s,%s,%s,%s,%s,%s,%s,%s)
 """)
 
-user_table_insert = ("""insert into users(user_id, first_name, last_name, gender, level) values(%s,%s,%s,%s,%s) ON CONFLICT(user_id) DO NOTHING
+user_table_insert = ("""insert into users(user_id, first_name, last_name, gender, level) values(%s,%s,%s,%s,%s) ON CONFLICT(user_id) DO UPDATE SET level = EXCLUDED.level
 """)
 
 song_table_insert = ("""insert into songs(song_id,title,artist_id,year,duration) values(%s,%s,%s,%s,%s) ON CONFLICT(song_id) DO NOTHING
@@ -69,7 +69,7 @@ time_table_insert = ("""insert into time(start_time,hour,day,week,month,year,wee
 
 # FIND SONGS
 
-song_select = ("""select a.song_id,b.artist_id from songs a , artists b  where a.title = %s and b.name = %s and a.duration = cast(%s as real)
+song_select = ("""select a.song_id,b.artist_id from songs a join artists b on a.artist_id = b.artist_id where a.title = %s and b.name = %s and a.duration = cast(%s as real)
 """)
 
 # QUERY LISTS
